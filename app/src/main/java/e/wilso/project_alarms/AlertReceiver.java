@@ -15,12 +15,20 @@ public class AlertReceiver extends BroadcastReceiver {
    @Override
    public void onReceive(Context context, Intent intent) {
       String music = intent.getExtras().getString("music");
+      Log.e(TAG, music + " :to music!");
 
-      Log.e(TAG, music);
+
+
+
 
       NotificationHelper notificationHelper = new NotificationHelper(context);
       NotificationCompat.Builder nb = notificationHelper.getChannelNotification();
 
       notificationHelper.getManager().notify(1, nb.build());
+
+      Intent serviceIntent = new Intent(context, RingtonePlayingService.class);
+      serviceIntent.putExtra("music", music);
+
+      context.startService(serviceIntent);
    }
 }
