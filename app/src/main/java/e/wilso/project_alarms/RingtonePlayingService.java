@@ -31,6 +31,7 @@ public class RingtonePlayingService extends Service {
 
    @Override
    public int onStartCommand(Intent intent, int flags, int startId) {
+
       String music = intent.getExtras().getString("music");
       Log.e(TAG, music + " :to music!");
 
@@ -56,7 +57,13 @@ public class RingtonePlayingService extends Service {
       Log.e("MyActivity", "In the service");
 
 
-      return super.onStartCommand(intent,flags,startId);
+      return START_NOT_STICKY;
+   }
+
+   @Override
+   public void onDestroy() {
+      Log.e("JSLog", "on destroy called");
+      super.onDestroy();
    }
 }
 

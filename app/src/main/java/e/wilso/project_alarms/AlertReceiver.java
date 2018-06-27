@@ -17,18 +17,12 @@ public class AlertReceiver extends BroadcastReceiver {
       String music = intent.getExtras().getString("music");
       Log.e(TAG, music + " :to music!");
 
-
-
-
-
       NotificationHelper notificationHelper = new NotificationHelper(context);
       NotificationCompat.Builder nb = notificationHelper.getChannelNotification();
-
       notificationHelper.getManager().notify(1, nb.build());
 
       Intent serviceIntent = new Intent(context, RingtonePlayingService.class);
       serviceIntent.putExtra("music", music);
-
       context.startService(serviceIntent);
    }
 }
