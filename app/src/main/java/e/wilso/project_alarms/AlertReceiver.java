@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 public class AlertReceiver extends BroadcastReceiver {
 
@@ -24,5 +25,7 @@ public class AlertReceiver extends BroadcastReceiver {
       Intent serviceIntent = new Intent(context, RingtonePlayingService.class);
       serviceIntent.putExtra("music", music);
       context.startService(serviceIntent);
+
+      Toast.makeText(context, "onReceive!!!", Toast.LENGTH_LONG).show();
    }
 }

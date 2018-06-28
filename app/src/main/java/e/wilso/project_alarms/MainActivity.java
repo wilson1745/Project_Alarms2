@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -72,6 +73,9 @@ public class MainActivity extends AppCompatActivity /*implements TimePickerDialo
             cancelAlarm();
          }
       });
+
+      Toast.makeText(this, "MainActivity!!!", Toast.LENGTH_LONG).show();
+
    }
 
    /*@Override
@@ -119,6 +123,6 @@ public class MainActivity extends AppCompatActivity /*implements TimePickerDialo
    @Override
    public void onDestroy() {
       super.onDestroy();
-      Log.e("MyActivity", "on Destroy");
+      Toast.makeText(this, "MyActivity on Destroy", Toast.LENGTH_LONG).show();
    }
 }
